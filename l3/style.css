@@ -88,3 +88,7 @@ div div p  div a div {
 .parent{
 	position: relative;
 }
+
+.bigText{
+	font-size: 30px;
+}
