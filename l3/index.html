@@ -7,10 +7,43 @@
 		<header>
 		</header>
 		<form action="" type="get">
-			<p>Введіть ваш логін</p>
-			<input type="text" name="login" value="Ivan">
-			<p>Введіть ваш пароль</p>
-			<input type="password" name="pass"><br><br>
+			<label >
+				<p>Введіть ваш логін</p>
+				<input type="text" 
+						name="login" 
+						value=""
+						placeholder="Ваш логін">
+			</label>
+			<label >
+				<p>Введіть ваш пароль</p>
+				<input type="password" 
+						name="pass"
+						placeholder="Ваш пароль"
+						><br><br>
+			</label>
+			<label >
+				<p>
+					<input type="checkbox" name="igree">
+					Погоджуюсь з використанням персональних даних
+				</p>
+			</label>
+				<p>
+					Ваша улюблена порароку
+					<label >
+					<input type="radio" name="season" value="весна"> весна
+					</label>
+					<label >
+						<input type="radio" name="season" value="літо">літо
+					</label >
+					<label >
+						<input type="radio" name="season" value="осінь">осінь
+					</label >
+					<label >
+						<input type="radio" name="season" value="зима">зима
+					</label >
+				</p>
+
+			
 			<input type="submit" value="Відправити">
 		</form>
 		<footer>
