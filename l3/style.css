@@ -24,34 +24,58 @@ div{
 	color: yellow;
 	width: 100px;
 	height: 40px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
+
+div div{
+	position: absolute;
+	background: red;
+}
+
+/*div>div
+
+div.blok_1.{
+
+}
+
+div div p  div a div {
+
+}*/
 
 .blok_1{
 	background: red;
-	padding-top: 5px;
+	z-index: 3;
+	/*padding-top: 5px;
 	padding-left: 15px;
 	padding-bottom: 25px;
 	padding-right: 35px;
-	margin: 30px;
+	margin: 30px;*/
 }
 
 .blok_2{
 	background: green;
-	padding: 20px 40px;
+	z-index: 2;
+	left: 20px;
+	top:20px;
+	/*left: 100px;
+	top: -40px;*/
+	/*padding: 20px 40px;
 	margin: 5px 10px;
 	margin-right: 50px;
 	width: 200px;
-	overflow: scroll;
+	overflow: scroll;*/
 }
 
 .blok_3{
 	background: blue;
-	padding: 35px 25px 15px 5px;
+	z-index: 1;
+	left: 40px;
+	top: 30px;
+	/*padding: 35px 25px 15px 5px;
 	margin: 5px 15px 25px 35px;
-	border: 2px solid #FF5580;
+	border: 2px solid #FF5580;*/
 	/*border-top: 4px dotted green;*/
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 }
 
 .stop{
@@ -59,4 +83,8 @@ div{
 	height: 100px;
 	border: 10px solid red;
 	border-radius: 60px 30px;
+}
+
+.parent{
+	position: relative;
 }
