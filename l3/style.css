@@ -19,3 +19,35 @@ input{
 p{
 	color: black;
 }
+
+div{
+	color: yellow;
+	width: 100px;
+	height: 40px;
+	overflow: hidden;
+}
+
+.blok_1{
+	background: red;
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-bottom: 25px;
+	padding-right: 35px;
+	margin: 30px;
+}
+
+.blok_2{
+	background: green;
+	padding: 20px 40px;
+	margin: 5px 10px;
+	margin-right: 50px;
+	width: 200px;
+	overflow: scroll;
+}
+
+.blok_3{
+	background: blue;
+	padding: 35px 25px 15px 5px;
+	margin: 5px 15px 25px 35px;
+	border: 2px solid #FF5580;
+}
