@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Урок 3</title>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<header>
@@ -9,21 +10,21 @@
 		<form action="" method="get">
 			<input type="hidden" name="key" value="sdfs33">
 			<label >
-				<p>Введіть ваш логін</p>
+				<p id="firstp" class="colorBlue">Введіть ваш логін</p>
 				<input type="text" 
 						name="login" 
 						value=""
 						placeholder="Ваш логін">
 			</label>
 			<label >
-				<p>Введіть ваш пароль</p>
+				<p class="colorBlue">Введіть ваш пароль</p>
 				<input type="password" 
 						name="pass"
 						placeholder="Ваш пароль"
 						><br><br>
 			</label>
 			<label >
-				<p>
+				<p class="colorBlue">
 					<input type="checkbox" name="igree">
 					Погоджуюсь з використанням персональних даних
 				</p>
@@ -47,8 +48,11 @@
 				<p>Напишіт коротку автобіографію</p>
 				<textarea name="" id="" cols="40" rows="10"></textarea>
 				<br>
+				Якийсь текст
+				<br>
 				<input type="color" name="color" >
 				<br>
+
 			<input type="submit" value="Відправити">
 		</form>
 		<footer>

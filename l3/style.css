@@ -1,0 +1,21 @@
+p{
+	color:#00DD33;
+	font-size: 20px;
+	background: #00FFFF;
+}
+
+input{
+	color: red;
+}
+
+#firstp{
+	color: red;
+}
+
+.colorBlue{
+	color: blue;
+}
+
+p{
+	color: black;
+}
