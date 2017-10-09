@@ -109,3 +109,38 @@ body{
 	transform: scale(1.1);
 	z-index: 2;
 }
+
+@media (max-width: 300px){
+	.gallery ul li{
+		width: 100%;
+	}
+}
+
+@media (min-width: 301px) and (max-width: 600px) {
+	.gallery ul li{
+		width: 50%;
+	}
+}
+
+input:focus{
+	border: 3px solid red;
+	outline: none;
+}
+
+p:after{
+	display: block;
+	height: 1px;
+	width: 100%;
+	background: red;
+	margin:15px 0;
+	content: "Псевдо елемент після батьківського елемента";
+}
+
+p:before{
+	display: block;
+	height: 1px;
+	width: 50%;
+	background: green;
+	margin:15px 0;
+	content: "Псевдо елемент до батьківського елемента";
+}
