@@ -144,3 +144,27 @@ p:before{
 	margin:15px 0;
 	content: "Псевдо елемент до батьківського елемента";
 }
+
+.animButton, .animButton .fon{
+	display: block;
+	height: 50px;
+	width: 50px;
+	position: relative;
+	background: black;
+	overflow: hidden;
+	padding: 0;
+	border: none;
+}
+
+.animButton .fon{
+	top:0;
+	position: absolute;
+	background: white;
+	opacity: 0.2;
+	transition: all 1s linear;
+	left: -100%;
+}
+
+.animButton:hover .fon{
+	left: 0;
+}
