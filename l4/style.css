@@ -1,0 +1,170 @@
+/*html body nav.meny ul li a{
+	font-size: 20px;
+}*/
+/*
+nav a{
+	font-size: 40px !important;
+}
+
+a{
+	font-size: 14px !important;
+}*/
+
+/*.meny a{
+	font-size: 10px;
+}
+
+#current{
+	font-size: 30px;
+}*/
+
+ul li{
+	list-style: none;
+}
+
+.meny ul li{
+	font-size: 20px;
+	background: green;
+	border: 1px solid yellow;
+	width: 150px;
+	float: left;
+}
+
+.crearfix{
+	clear: both;
+}
+
+.meny ul li:hover{
+	opacity: 0.9;
+}
+
+.meny ul li a:hover{
+	color: red;
+}
+
+.meny ul li a{
+	text-decoration: none;
+	color: #fff;
+	padding: 5px;
+	width: 100%;
+	display: block;
+}
+
+.meny{
+	/*left: 300px;*/
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.meny ul{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	height: 2000px;
+}
+
+.meny ul li ul{
+	display: none;
+}
+
+.meny ul li:hover ul{
+	display: block;
+}
+
+.gallery{
+	width: 100%;
+}
+
+.gallery ul li{
+	float: left;
+	width: 33.3333%;
+	padding: 5px;
+	box-sizing: border-box;
+	display: block;
+
+}
+
+.gallery ul li img{
+	width: 100%;
+	display: block;
+	position: relative;
+	right: 0;
+	bottom: 0;
+	opacity: 1;
+	/*transition: right 0.1s linear,bottom 0.1s linear 0.1s, opacity 0.2s linear;*/
+	transition: all 0.2s linear;
+	transform: scale(1);
+	z-index: 1;
+}
+
+.gallery ul li:hover img{
+	/*opacity: 0.8;*/
+	/*right: 25px;*/
+	/*transition: right 0.5s linear,bottom 0.5s linear 0.5s, opacity 1s linear;*/
+	transition: all 1s linear;
+	/*bottom: 5px;*/
+	transform: scale(1.1);
+	z-index: 2;
+}
+
+@media (max-width: 300px){
+	.gallery ul li{
+		width: 100%;
+	}
+}
+
+@media (min-width: 301px) and (max-width: 600px) {
+	.gallery ul li{
+		width: 50%;
+	}
+}
+
+input:focus{
+	border: 3px solid red;
+	outline: none;
+}
+
+p:after{
+	display: block;
+	height: 1px;
+	width: 100%;
+	background: red;
+	margin:15px 0;
+	content: "Псевдо елемент після батьківського елемента";
+}
+
+p:before{
+	display: block;
+	height: 1px;
+	width: 50%;
+	background: green;
+	margin:15px 0;
+	content: "Псевдо елемент до батьківського елемента";
+}
+
+.animButton, .animButton .fon{
+	display: block;
+	height: 50px;
+	width: 50px;
+	position: relative;
+	background: black;
+	overflow: hidden;
+	padding: 0;
+	border: none;
+}
+
+.animButton .fon{
+	top:0;
+	position: absolute;
+	background: white;
+	opacity: 0.2;
+	transition: all 1s linear;
+	left: -100%;
+}
+
+.animButton:hover .fon{
+	left: 0;
+}
