@@ -3,3 +3,17 @@
   border:1px solid black;
   height: 50px;
 }
+
+.fullwidth{
+  height: 200px;
+  background: green;
+}
+
+.myClass{
+  font-size: 30px;
+  color: yellow;
+}
+
+.navbar-inverse .navbar-collapse{
+  background: green;
+}
