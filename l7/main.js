@@ -121,6 +121,63 @@ do{
 
 console.log("Значення і="+i);
 
+var count = 0;
+
+for(var n1 = 0; n1<=999; n1++){
+	for(var n2 = 0; n2 <= 999; n2++){
+		var tmp_n1 = n1;
+		var number1 = tmp_n1%10;
+
+		tmp_n1 -= number1;
+		tmp_n1 /=10;
+
+		number2 = tmp_n1%10;
+
+		tmp_n1 -= number2;
+		tmp_n1 /=10;
+
+		number3 = tmp_n1%10;
+
+		sum1 = number3 + number2 + number1;
+
+		var tmp_n2 = n2;
+		var number4 = tmp_n2%10;
+
+		tmp_n2 -= number4;
+		tmp_n2 /=10;
+
+		number5 = tmp_n2%10;
+
+		tmp_n2 -= number5;
+		tmp_n2 /= 10;
+
+		number6 = tmp_n2%10;
+
+		sum2 = number4 + number5 + number6;
+
+		if(sum1==sum2){
+			count++
+		}
+
+	}
+}
+
+console.log("Кількість щасливих квитків "+ count);
+
+var tmp_n1 = 1;
+var number1 = tmp_n1%10;
+
+tmp_n1 -= number1;
+tmp_n1 /=10;
+
+number2 = tmp_n1%10;
+
+tmp_n1 -= number2;
+tmp_n1 /=10;
+
+number3 = tmp_n1%10;
+
+console.log(number1, number2, number3);
 
 
 
