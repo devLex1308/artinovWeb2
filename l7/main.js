@@ -123,62 +123,113 @@ console.log("Значення і="+i);
 
 var count = 0;
 
-for(var n1 = 0; n1<=999; n1++){
-	for(var n2 = 0; n2 <= 999; n2++){
-		var tmp_n1 = n1;
-		var number1 = tmp_n1%10;
+// for(var n1 = 0; n1<=999; n1++){
+// 	for(var n2 = 0; n2 <= 999; n2++){
+// 		var tmp_n1 = n1;
+// 		var number1 = tmp_n1%10;
 
-		tmp_n1 -= number1;
-		tmp_n1 /=10;
+// 		tmp_n1 -= number1;
+// 		tmp_n1 /=10;
 
-		number2 = tmp_n1%10;
+// 		number2 = tmp_n1%10;
 
-		tmp_n1 -= number2;
-		tmp_n1 /=10;
+// 		tmp_n1 -= number2;
+// 		tmp_n1 /=10;
 
-		number3 = tmp_n1%10;
+// 		number3 = tmp_n1%10;
 
-		sum1 = number3 + number2 + number1;
+// 		sum1 = number3 + number2 + number1;
 
-		var tmp_n2 = n2;
-		var number4 = tmp_n2%10;
+// 		var tmp_n2 = n2;
+// 		var number4 = tmp_n2%10;
 
-		tmp_n2 -= number4;
-		tmp_n2 /=10;
+// 		tmp_n2 -= number4;
+// 		tmp_n2 /=10;
 
-		number5 = tmp_n2%10;
+// 		number5 = tmp_n2%10;
 
-		tmp_n2 -= number5;
-		tmp_n2 /= 10;
+// 		tmp_n2 -= number5;
+// 		tmp_n2 /= 10;
 
-		number6 = tmp_n2%10;
+// 		number6 = tmp_n2%10;
 
-		sum2 = number4 + number5 + number6;
+// 		sum2 = number4 + number5 + number6;
 
-		if(sum1==sum2){
-			count++
-		}
+// 		if(sum1==sum2){
+// 			count++
+// 		}
 
-	}
+// 	}
+// }
+
+// console.log("Кількість щасливих квитків "+ count);
+
+// var tmp_n1 = 1;
+// var number1 = tmp_n1%10;
+
+// tmp_n1 -= number1;
+// tmp_n1 /=10;
+
+// number2 = tmp_n1%10;
+
+// tmp_n1 -= number2;
+// tmp_n1 /=10;
+
+// number3 = tmp_n1%10;
+
+// console.log(number1, number2, number3);
+
+var stydentArray = [];
+
+stydentArray[0] = 'Іванов';
+stydentArray[1] = 'Петров';
+stydentArray[2] = 'Петренко';
+stydentArray[stydentArray.length] = "Шаріков";
+
+
+//array = ['Іванов', 'Петров', 'Петренко', 'Шаріков'];
+var array = Array('Іванов', 'Петров', 'Петренко', 'Шаріков');
+for(var i = 0; i<stydentArray.length; i++){
+	console.log("Cтудент під індексом "+ i +" " + stydentArray[i] +" "+ stydentArray.length);
 }
 
-console.log("Кількість щасливих квитків "+ count);
+console.log(stydentArray);
 
-var tmp_n1 = 1;
-var number1 = tmp_n1%10;
+var matrix = ["Перше значення"];
+matrix[0] = [2,4];
+matrix[1] = [5,7,4,5];
+matrix[2] = "Sasha";
 
-tmp_n1 -= number1;
-tmp_n1 /=10;
-
-number2 = tmp_n1%10;
-
-tmp_n1 -= number2;
-tmp_n1 /=10;
-
-number3 = tmp_n1%10;
-
-console.log(number1, number2, number3);
+var myObject = {
+	name:'Саша',
+	age:28,
+	link:'www.mysite.com',
+	born:"Вінниця",
+	"ключ 1":3
+};
 
 
+var student1 = {
+	name:'Саша',
+	age:28,
+	university:'ВНТУ'
+}
 
+var student2 = {
+	name:'Карл' + i,
+	age:18,
+	university:'Аграрний'
+}
 
+var student = [];
+student[0] = student1;
+student[1] = student2;
+
+var value = Math.floor(Math.random()*150);
+
+[
+	{name:'Карл 1', age:34},
+	{name:'Карл 2', age:44},
+]
+
+console.log(value);
