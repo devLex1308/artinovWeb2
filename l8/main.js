@@ -1,3 +1,5 @@
+console.log("2^4 = ", pow(2,4));
+
 // alert("Привіт!");
 
 //var isAdmin = confirm("Ви адмін?");
@@ -150,4 +152,120 @@ for (var n1 = 0; n1<=999; n1++){
 	}
 }
 
-console.log("Count = ", counter);
+function pow(x, step){
+	var result = x;
+	for(var i=1; i<step; i++){
+		result *= x;
+	}
+	return result;
+}
+ 
+var x = 7; 
+var y = 4 * pow(x, 3) +  3 * pow(x, 1);
+
+console.log("Count = ", pow(2,10));
+
+// var g = pifagor(3,4);
+// console.log(" g = ", g);
+
+var pifagor = function(a,b){
+	var g = Math.sqrt(pow(a,2) + pow(b,2));
+	return g;
+}
+
+var g = pifagor(3,5);
+console.log(" g = ", g);
+
+function randomAge(start, end){
+	var r = Math.round(start + Math.random()*(end - start));
+	return r;
+}
+
+var kings = [];
+
+for(var i = 0; i< 10; i++){
+	kings[i] = {
+		name: "Karl " + i,
+		age: randomAge(18,100)
+	}
+}
+
+console.log(kings);
+
+for(var i = 0; i < kings.length; i++){
+	if(kings[i].age>=40){
+		console.log(kings[i]);
+	}
+}
+
+var array = [4,7,1,3,239873587,6,7,2];
+
+var min = array[0];
+var indexMin = 0;
+
+// for (var n = 1; n < array.length; n++){
+// 	var newIndexMin = indexMin;
+
+// 	for(var i = n + 1; i < array.length; i++){
+// 		if(array[i]<min){
+// 			min = array[i];
+// 			newIndexMin = i;
+// 		}
+// 	}
+
+// 	array[newIndexMin] = array[indexMin];
+// 	array[indexMin] = min;
+
+// 	indexMin = newIndexMin;
+// }
+
+// console.log(array);
+
+var sortArray = array.sort(function(a,b){
+	return a > b;
+});
+
+sortArray.push(2);
+sortArray.push("Ivan");
+
+sortArray.pop();
+sortArray.pop();
+sortArray.pop();
+
+console.log(sortArray);
+
+sortArray.forEach(function(item, i){
+	console.log("item[" + i +"] = " + item);
+});
+
+var powArray = sortArray.map(function(item, i){
+	return item*item + 2;
+});
+
+console.log(powArray);
+
+var powArray2 = powArray;
+
+powArray2[2] = "Привіт";
+
+console.log(sortArray);
+console.log(powArray);
+console.log(powArray2);
+
+kub['city'] = "Вінниця";
+
+var arrayKey = Object.keys(kub);
+
+Object.keys(kub).map(function(key){
+	console.log("kub["+key+"] = "+ kub[key]);
+});
+
+for(var key in kub){
+	console.log("kub["+key+"] = "+ kub[key]);
+}
+
+var string = "abc";
+
+console.log(string[1]);
+
+//console.log(arrayKey);
