@@ -101,7 +101,14 @@ function counter(){
 				console.log("Reset");
 				count = 0;
 				console.log("count =", count);
+			},
+		getCount: function(){
+				return count;
+			},
+		setCount: function(value){
+				count = value;
 			}
+
 	};
 }
 
@@ -110,6 +117,7 @@ function counter(){
 var c = counter();
 
 c.up();
+c.setCount(99);
 c.up();
 c.down();
 c.reset();
