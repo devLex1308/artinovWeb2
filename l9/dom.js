@@ -40,9 +40,35 @@ for (var i = 0; i < countRow; i++){
 		//td.innerHTML = j + " * " + i +" = "+ j*i;
 		td.onclick = function(){
 			console.log("td"+j+"_"+i);
+
+			var currentClass = this.getAttribute('class');
+			if(currentClass=='active'){
+				this.setAttribute("class","");
+			}else{
+				this.setAttribute("class","active");
+			}
+
 			console.log(this.getAttribute("id"));
-			this.setAttribute("class","active");
+			//this.setAttribute("class","active");
 		}
+
+		td.ondblclick = function(){
+					
+			this.style['background'] = 'green';
+			var t = this.style['background'];
+			console.log('background = ', t );
+
+		}
+
+		// td.onmouseover = function(){
+		// 	this.style['background'] = '#aaa';
+		// }
+
+		// td.onmouseout = function(){
+		// 	this.style['background'] = '';
+		// }
+
+
 		tr.appendChild(td);
 	}
 	table.appendChild(tr);
