@@ -22,6 +22,18 @@ function Display(sizeX, sizeY){
 		conteiner.appendChild(table);
 	}
 
+	this.setPixel = function(x, y){
+		var pixel = document.getElementById("td"+x+"_"+y);
+		pixel.setAttribute("class", "active");
+	}
+
+	this.clearDisplay = function(){
+		activCells = table.querySelectorAll(".active");
+		for (var i = 0; i < activCells.length; i++){
+			activCells[i].setAttribute("class", "");
+		}
+	}
+
 	this.init(sizeX, sizeY);
 
 }
