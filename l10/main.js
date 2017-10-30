@@ -6,31 +6,11 @@ var obj = function (argument) {
 	return {}
 }
 
-
-function Dot(x, y){
-	var _x = x;
-	var _y = y;
-
-	this.getX(){
-		return _x;
-	}
-
-	this.getY(){
-		return _y;
-	}
-}
+var display = new Display(20,17);
 
 
-var dot = new Dot(0, 0);
+var dot = new Dot(10, 10);
+dot.down();
+dot.right();
+console.log(dot.getX(),dot.getY());
 
-
-
-var dot1 = {
-	x:1;
-	y:1;
-}
-
-var dot2 = {
-	x:2;
-	y:1;
-}
