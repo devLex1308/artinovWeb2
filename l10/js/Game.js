@@ -1,6 +1,3 @@
-console.log("Main.js");
-
-
 function Game(){
 	
 	var display;
@@ -68,16 +65,3 @@ function Game(){
 
 	this.init();
 }
-
-
-var game = new Game();
-
-setInterval(function(){
-	game.update();
-}, 1000);
-
-// var dot = 
-// dot.down();
-// dot.right();
-// console.log(dot.getX(),dot.getY());
-
