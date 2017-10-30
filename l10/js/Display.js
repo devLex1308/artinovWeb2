@@ -1,17 +1,22 @@
 function Display(sizeX, sizeY){
 
 	var table;
+	var _size_x;
+	var _size_y;
 
 	this.init = function(arg_X, arg_Y){
+		_size_x = arg_X;
+		_size_y = arg_Y;
+
 		table = document.createElement("table");
 		table.setAttribute('class','display')
 
 		var conteiner = document.getElementById("content");
 
 		console.log(conteiner.innerHTML);
-		for (var i = 0; i < arg_Y; i++){
+		for (var i = 0; i < _size_y; i++){
 			var tr = document.createElement('tr');
-			for (var j = 0; j < arg_X; j++){
+			for (var j = 0; j < _size_x; j++){
 				var td = document.createElement('td');
 				td.setAttribute('id',"td"+j+"_"+i);
 				tr.appendChild(td);
@@ -32,6 +37,14 @@ function Display(sizeX, sizeY){
 		for (var i = 0; i < activCells.length; i++){
 			activCells[i].setAttribute("class", "");
 		}
+	}
+
+	this.getSizeX = function(){
+		return _size_x;
+	}
+
+	this.getSizeY = function(){
+		return _size_y;
 	}
 
 	this.init(sizeX, sizeY);
