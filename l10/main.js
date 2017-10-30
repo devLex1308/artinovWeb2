@@ -1,9 +1,5 @@
 console.log("Main.js");
 
-
-
-
-
 var game = new Game();
 
 setInterval(function(){
