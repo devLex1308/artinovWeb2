@@ -1,0 +1,9 @@
+table.display td{
+	background: #ddd;
+	width: 20px;
+	height: 20px;
+}
+
+table.display td.active{
+	background: red;
+}
