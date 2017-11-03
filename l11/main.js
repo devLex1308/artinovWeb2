@@ -161,7 +161,9 @@ class Animal{
 		console.log('Якийсь звук');
 	}
 
-
+	static getPi(){
+		return 3.14;
+	}
 	// get food(){
 	// 	return this.food;
 	// }
@@ -182,9 +184,51 @@ class Cat extends Animal{
 }
 
 
+
+
+console.log(Animal.getPi());
 let anim = new Cat("Мурчик");
 
 console.log(anim.name);
 
 anim.hunting();
 anim.say();
+
+
+let arrNames = ["Alex", "Ivan", "Ira", 'Test', 'rrr'];
+
+let [v1, v2, ...all] = arrNames;
+
+console.log(v1, v2, all);
+
+function test(a,b){
+	console.log(a);
+	console.log(b);
+	//console.log(c);
+}
+
+test(...all);
+
+function test2(...arr){
+	console.log(arr);
+}
+
+test2(12,23,true,'Hi');
+
+let copyAll = [...all];
+copyAll[0] = 1;
+
+console.log(copyAll);
+console.log(all);
+
+let o = {
+	name: 'Ira',
+	city: 'Kiev'
+}
+
+let oCopy = {...o};
+
+o.name = 'Наташа';
+
+console.log(oCopy);
+console.log(o);
