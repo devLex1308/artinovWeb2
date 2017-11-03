@@ -1,10 +1,17 @@
 console.log("Main.js");
 
 var game = new Game();
+var koef = 16;
 
+var count = 0;
 setInterval(function(){
-	game.update();
-}, 500);
+	if(count <= koef){
+		count++;
+	}else{
+		game.update();
+		count = 0;
+	}
+}, 50);
 
 // var dot = 
 // dot.down();

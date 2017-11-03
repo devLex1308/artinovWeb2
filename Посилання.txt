@@ -4,3 +4,7 @@ https://freebiesbug.com/psd-freebies/blueasy-psd-portfolio-template/
 activCells = this.table.querySelectorAll(".active");
 
 document.onkeydown = function(event){
+
+Object.assign(user, visitor, admin);
+
+https://www.w3schools.com/jsref/jsref_obj_date.asp

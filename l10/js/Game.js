@@ -119,6 +119,7 @@ function Game(){
 	this.eatMouse = function(x, y){
 		if(mouse.getX() == x && mouse.getY()==y){
 			this.initMouse();
+			koef--;
 			return true;
 		}else{
 			return false;

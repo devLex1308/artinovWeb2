@@ -1,0 +1,33 @@
+<manifest alg="2" build="232" opt="false" iceEnabled="true">
+  <folder name="css">
+    <file name="site_global.css" crc="397963719"/>
+    <file name="index.css" crc="3983494878" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
+    <file name="museutils.js" crc="4291592202" ref="index"/>
+    <file name="jquery.musepolyfill.bgsize.js" crc="291134478" ref="index"/>
+    <file name="pie.js" crc="3827607177" ref="index"/>
+    <file name="jquery.tobrowserwidth.js" crc="3842421675" ref="index"/>
+    <file name="jquery.watch.js" crc="4068933136" ref="index"/>
+  </folder>
+  <folder name="images">
+    <file name="s1.jpg" crc="4214900437" ref="index"/>
+    <file name="logo.png" crc="3901747306" ref="index"/>
+    <file name="people.png" crc="4064755735" ref="index"/>
+    <file name="heart.png" crc="367476966" ref="index"/>
+    <file name="naushniki.png" crc="3844786430" ref="index"/>
+    <file name="2.jpg" crc="4220696870" ref="index"/>
+    <file name="1.jpg" crc="263808309" ref="index"/>
+    <file name="range.png" crc="3921407497" ref="index"/>
+    <file name="3.jpg" crc="3864496601" ref="index"/>
+    <file name="4.jpg" crc="3801565236" ref="index"/>
+    <file name="5.jpg" crc="4264985909" ref="index"/>
+    <file name="plane.png" crc="247102262" ref="index"/>
+    <file name="pencil.png" crc="3999093907" ref="index"/>
+    <file name="6.jpg" crc="4186511776" ref="index"/>
+    <file name="star.png" crc="10034466" ref="index"/>
+    <file name="client.png" crc="3811221106" ref="index"/>
+  </folder>
+  <file name="index.html" crc="3980980170" mt="1391865020236" redirect="true"/>
+</manifest>
