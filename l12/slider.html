@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+	<title>INSIDE WINDOWS</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />	
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+</head>
+<body class="loaded">
+	<style type="text/css">
+		ul{
+			position: relative;
+			width: 100%;
+			display: block;
+			overflow: hidden;
+			height: 600px;
+		}
+		ul li{
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+		}
+
+		ul li.active{
+			position: absolute;
+			z-index: 100;
+		}
+
+		ul li img{
+			width: 100%;
+			display: block;
+
+		}
+	</style>
+
+	<ul class="gallery">
+		<li><img src="images/1.jpg"></li>
+		<li><img src="images/2.jpg"></li>
+		<li><img src="images/3.jpg"></li>
+		<li><img src="images/4.jpg"></li>
+		<li><img src="images/5.jpg"></li>
+	</ul>	
+
+
+</body>
+</html>
