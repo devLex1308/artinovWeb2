@@ -215,7 +215,9 @@ function test2(...arr){
 
 test2(12,23,true,'Hi');
 
-let copyAll = [...all];
+let all2 = [4,5,6,9]
+
+let copyAll = [...all,'Hi',...all2];
 copyAll[0] = 1;
 
 console.log(copyAll);
