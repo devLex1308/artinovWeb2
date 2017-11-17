@@ -113,22 +113,15 @@ function addUser(d){
 	let name = arr[1];
 	let pass = parseInt(arr[2]);
 
-	fs.readFile('db.txt', 'utf-8', (error, data) => {
+	load((error, data)=>{
+		
 		if(error){
-			return console.log('Прочитати файл');
+			return console.log(error);
 		}
 
-		let rez = null;
-		try{
-			rez = JSON.parse(data);
-		}catch(e){
-			console.log("Неможливо роспарсити стрічку");
-		}
+		data.push({name, pass});
 
-		rez.push({name, pass});
-		console.log(rez);
-
-		let stringRez = JSON.stringify(rez);
+		let stringRez = JSON.stringify(data);
 		fs.writeFile("db.txt", stringRez, (error) => {
 
 			if(error){
@@ -137,11 +130,9 @@ function addUser(d){
 
 			console.log('Файл мав записатись');
 		});
+
 	});
 
- 
-
-	console.log(name, pass);
 }
 
 function checkUser(d){
@@ -149,23 +140,15 @@ function checkUser(d){
 	let name = arr[1];
 	let pass = parseInt(arr[2]);
 
-	fs.readFile('db.txt', 'utf-8', (error, data) => {
+	load((error, data) => {
 		if(error){
-			return console.log('Прочитати файл');
+			return console.log(error);
 		}
 
-		let rez = null;
-		try{
-			rez = JSON.parse(data);
-		}catch(e){
-			console.log("Неможливо роспарсити стрічку");
-		}
-
-		//let users = rez.find(item => true);
 		let haveUser = false;
 
-		for(let i = 0; i < rez.length; i++){
-			if(rez[i].name == name && rez[i].pass == pass ){
+		for(let i = 0; i < data.length; i++){
+			if(data[i].name == name && data[i].pass == pass ){
 				haveUser = true;
 				break;
 			}
@@ -176,5 +159,25 @@ function checkUser(d){
 		} else {
 			console.log("Користувача немає");
 		}
+
+	});
+
+}
+
+function load(done){
+	
+	fs.readFile('db.txt', 'utf-8', (error, data) => {
+		if(error){
+			done('Неможливо прочитати файл');
+		}
+
+		let rez = null;
+		try{
+			rez = JSON.parse(data);
+			done(null, rez);
+		}catch(e){
+			done('Неможливо розпарсити стрічку');
+		}
+
 	});
 }
