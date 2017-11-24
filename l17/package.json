@@ -1,0 +1,16 @@
+{
+  "name": "l17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "help.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
