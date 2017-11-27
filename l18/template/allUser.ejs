@@ -18,14 +18,15 @@
 					<% console.log('------------------------------') %>
 					<% console.log(data) %>
 					<% console.log('------------------------------') %>
-					<% data.map((item)=>{ %>
+					<% data.map((item, index)=>{ %>
+						<% let i = index + 1; %>
 						<% console.log(item) %>
 						<tr>
-							<td><%=item.id %></td>
+							<td><%=i %></td>
 							<td><%=item.login %></td>
 							<td><%=item.pass %></td>
-							<td><a href="/user/edit/<%=item.id%>">edit</a></td>
-							<td><a href="/user/delete/<%=item.id%>">delete</a></td>
+							<td><a href="/user/edit/<%=item._id%>">edit</a></td>
+							<td><a href="/user/delete/<%=item._id%>">delete</a></td>
 						</tr>
 					<% }); %>
 				</tbody>

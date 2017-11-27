@@ -5,6 +5,8 @@ let bodyParser = require('body-parser');
 let fs = require('fs');
 var mongoClient = require("mongodb").MongoClient;
 var objectId = require("mongodb").ObjectID;
+var Cookies = require( "cookies" );
+
 var url = "mongodb://localhost:27017/test";
 
 
@@ -26,6 +28,9 @@ app.use('/',express.static(path.join(__dirname, 'public')));
 // });
 
 app.get('/about', function (req, res) {
+	
+	var cookies = new Cookies( req, res); 
+	cookies.set( "name", "Lex", { httpOnly: false, maxAge: 9999 } )
    res.render('about', {
    	title: 'about',
    	content: 'about content',
@@ -58,57 +63,59 @@ app.get('/user/add', function (req, res) {
 
 app.get('/user/edit/:id', function (req, res) {
 
-  load((error, data)=>{
- 		if(error) {
- 			res.send('Error 500 server not work!');
- 		}
- 		
- 		let userId = req.params.id;
- 		let user = data.data.find((item)=>{
- 			return item.id == userId
- 		});
+	var id = new objectId(req.params.id);
+    mongoClient.connect(url, function(err, db){
+        db.collection("users").findOne({_id: id}, function(err, user){
+             
+             console.log(user);
+            if(err) return res.status(400).send();
+             
+            db.close();
 
- 		res.render('edituser',{
-	  		title: 'All user',
-	  		user,
-	  	});
+            res.render('edituser',{
+		  		title: 'Edit user',
+		  		user,
+	  		});
+        });
+    });
+ 
+});
 
- 	});
+
+app.get('/user/delete/:id', function (req, res) {
+
+	var id = new objectId(req.params.id);
+    mongoClient.connect(url, function(err, db){
+        db.collection("users").findOneAndDelete({_id: id}, function(err, result){
+             
+            if(err) return res.status(400).send();
+             
+            //var user = result.value;
+            //res.send(user);
+            db.close();
+            res.redirect('/users');
+        });
+    });
 });
 
 app.post('/user/edit/:id', function (req, res) {
-  console.log(req.body);
-  const {login, pass} = req.body;
- 	
- 	load((error, data)=>{
- 		if(error) {
- 			res.send('Error 500 server not work!');
- 		}
-
- 		let userId = req.params.id;
- 		let userIndex = null;
- 		let user = data.data.find((item, index) => {
- 			if(item.id == userId){
- 				userIndex = index;
- 			}
- 			return item.id == userId
- 		});
-
- 		data.data[userIndex] = {
- 			...user,
- 			login,
- 			pass,
- 		} 
- 		console.log(userIndex, user);
-
- 		save(data, (error)=>{
- 			if(error){
- 				res.send('Error 500 server not work!');
- 			}
-
- 			res.redirect('/users');
- 		});
- 	});
+  	console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!s');
+	if(!req.body) return res.sendStatus(400);
+	var id = new objectId(req.params.id);
+    const {login, pass} = req.body;
+     
+    mongoClient.connect(url, function(err, db){
+        db.collection("users").findOneAndUpdate({_id: id}, { $set: {login, pass}},
+             {returnOriginal: false },function(err, result){
+             
+             console.log("result = ", result);
+            if(err) return res.status(400).send();
+             
+            var user = result.value;
+            db.close();
+            res.redirect('/users');
+        });
+    });
 
 });
 
