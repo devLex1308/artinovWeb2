@@ -51,7 +51,7 @@ db.users.insertMany([{"name": "Bob", "age": 26, languages: ["english", "frensh"]
 
 db.users.insert({"name": "Tom", "age": 28, languages: ["english", "spanish"]})
 
-db.users.renameCollection("new_name")
+db.users.renameCollection("new_name") 
 
 db.createCollection("accounts")
 db.createCollection("profile", {capped:true, size:9500})
@@ -304,7 +304,7 @@ mongoClient.connect("mongodb://localhost:27017/usersdb", function(err, db){
      
     if(err) return console.log(err);
      
-    db.collection("users").deleteMany({name: "Tom"}, function(err, result){
+    ldb.collection("users").deleteMany({name: "Tom"}, function(err, result){
              
         console.log(result);
         db.close();
