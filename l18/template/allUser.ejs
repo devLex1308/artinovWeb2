@@ -26,7 +26,7 @@
 							<td><%=item.login %></td>
 							<td><%=item.pass %></td>
 							<td><a href="/user/edit/<%=item._id%>">edit</a></td>
-							<td><a href="/user/delete/<%=item._id%>">delete</a></td>
+							<td><button href="/user/delete/<%=item._id%>" class="deleteUser" data-userid="<%=item._id%>">delete</button></td>
 						</tr>
 					<% }); %>
 				</tbody>

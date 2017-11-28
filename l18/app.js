@@ -3,12 +3,27 @@ let path = require('path');
 let app = express();
 let bodyParser = require('body-parser');
 let fs = require('fs');
-var mongoClient = require("mongodb").MongoClient;
-var objectId = require("mongodb").ObjectID;
-var Cookies = require( "cookies" );
+let mongoClient = require("mongodb").MongoClient;
+let objectId = require("mongodb").ObjectID;
+let Cookies = require( "cookies" );
+let session = require('express-session');
+
+app.use(session({
+    secret: '2C44-4D44-WppQ38S',
+    resave: true,
+    saveUninitialized: true
+}));
 
 var url = "mongodb://localhost:27017/test";
 
+
+// Authentication and Authorization Middleware
+// const auth = function(req, res, next) {
+//   if (req.session && req.session.admin)
+//     return next();
+//   else
+//     return res.sendStatus(401);
+// };
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -31,7 +46,7 @@ app.get('/about', function (req, res) {
 	
 	var cookies = new Cookies( req, res); 
 	cookies.set( "name", "Lex", { httpOnly: false, maxAge: 9999 } )
-   res.render('about', {
+   	res.render('about', {
    	title: 'about',
    	content: 'about content',
    });
@@ -54,6 +69,40 @@ app.get('/contact', function (req, res) {
   	content: 'Content contact'
   });
 });
+
+app.get('/aftorization', function (req, res) {
+  res.render('adduser',{
+  	title: 'Вхід на сайт'
+  });
+});
+
+app.post('/aftorization', function (req, res) {
+  
+	if(!req.body) return res.sendStatus(400);
+    const {login, pass} = req.body;
+
+  mongoClient.connect(url, function(err, db){
+        db.collection("users").findOne({login, pass}, function(err, user){
+             
+             console.log(user);
+            if(err) return res.status(400).send();
+             
+            if(user){
+            	var cookies = new Cookies( req, res); 
+				cookies.set( "name", user.login, { httpOnly: false, maxAge: 60*60*1000 } );
+				cookies.set( "isAmin", true, { httpOnly: false, maxAge: 60*60*1000 } )
+            	//req.session.login = user.login;
+    			//req.session.admin = true;
+            }
+
+            db.close();
+
+            res.redirect('/');
+        });
+    });
+});
+
+
 
 app.get('/user/add', function (req, res) {
   res.render('adduser',{
@@ -98,6 +147,25 @@ app.get('/user/delete/:id', function (req, res) {
     });
 });
 
+app.post('/user/deleteajax/:id', function (req, res) {
+
+	var id = new objectId(req.params.id);
+    mongoClient.connect(url, function(err, db){
+        db.collection("users").findOneAndDelete({_id: id}, function(err, result){
+             
+            if(err) return res.status(400).send();
+             
+            //var user = result.value;
+            //res.send(user);
+            db.close();
+            let result1 = {
+            	resalt: true
+            };
+            res.send(200, JSON.stringify(result1));
+        });
+    });
+});
+
 app.post('/user/edit/:id', function (req, res) {
   	console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!s');
 	if(!req.body) return res.sendStatus(400);
@@ -120,8 +188,13 @@ app.post('/user/edit/:id', function (req, res) {
 });
 
 
-app.get('/users', function (req, res) {
+app.get('/users',/*auth(),*/ function (req, res) {
   
+	// var cookies = new Cookies( req, res); 
+	// if(!cookies.get('isAmin')) {
+	// 	res.redirect('/');
+	// }
+
   mongoClient.connect(url, function(err, db){
         db.collection("users").find({}).toArray(function(err, users){
             res.render('allUser',{
