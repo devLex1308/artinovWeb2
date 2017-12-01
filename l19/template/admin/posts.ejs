@@ -1,0 +1,25 @@
+<% include header %>
+  <script type="text/javascript" src="//cdn.ckeditor.com/4.4.0/standard/ckeditor.js"></script>
+  <div class="container"> 
+    <div class="row">
+    <h1><%= title%></h1>
+      
+      <table class="table table-bordered table-hover">
+         <tr>
+           <th>№</td>
+           <td>Назва</td>
+           <th>Редагувати</th>
+         </tr>
+         <% posts.forEach((post, index) => { %>
+          <tr>
+           <th><%= index + 1 %></td>
+           <td><%= post.title %></td>
+           <td><a href="/admin/post/edit/<%= post._id %>">Редагувати</a></td>
+          </tr>
+         <% }); %>
+       </table>
+
+    </div>
+  </div> 
+
+<% include footer %>

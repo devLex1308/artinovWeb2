@@ -1,0 +1,13 @@
+<% include header %>
+	<h1><%= title%></h1>
+	<% posts.forEach((post, index) => { %>
+      <div class="postShort">
+       	<h2 class="title"><%= post.title %></h2>
+       	<p class="description">
+       		<%= post.description %>
+       	</p>
+       	<td><a href="/post/<%= post._id %>">Перейти</a></td>
+      </div>
+     <% }); %>
+	
+<% include footer %>
