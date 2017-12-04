@@ -1638,3 +1638,32 @@ border-right: none;
 td:nth-child(2){
 text-align: left;
 }
+
+.container{
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#chat{
+  background: grey;
+  max-height: 400px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  overflow: scroll;
+}
+
+
+#chat li{
+  font-size: 24px;
+  margin: 10px;
+}
+
+#chat li span{
+  color: red;
+}
+
+#sms{
+   font-size: 24px;
+   width: 100%;
+   padding: 20px;
+}

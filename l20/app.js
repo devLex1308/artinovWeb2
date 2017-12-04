@@ -1,6 +1,10 @@
 let express = require('express');
 let path = require('path');
 let app = express();
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
 let bodyParser = require('body-parser');
 let fs = require('fs');
 let mongoClient = require("mongodb").MongoClient;
@@ -358,6 +362,74 @@ app.get('/posts', function (req, res) {
 
 });
 
+app.get('/chat', function (req, res) {
+  mongoClient.connect(url, function(err, db){
+        db.collection("chat").find({}).toArray(function(err, mesages){
+            console.log(mesages);
+            res.render('post/chat',{
+                title: 'Чат',
+                mesages
+             });
+            db.close();
+        });
+    });
+
+  
+
+});
+
+app.post('/chat', function (req, res) {
+   const {sms} = req.body;
+   const date = new Date();
+   const user = req.session.login || 'Анонім';
+   mongoClient.connect(url, function(err, db){
+        db.collection("chat").insertOne({user, date, sms}, function(err, result){
+             
+            if(err) return res.status(400).send();
+
+            db.close();
+            res.redirect('/chat');
+        });
+    });
+
+});
+
+app.post('/chatajaxdata', function (req, res) {
+   mongoClient.connect(url, function(err, db){
+        db.collection("chat").find({}).toArray(function(err, mesages){
+            res.send(200, JSON.stringify(mesages))
+            db.close();
+        });
+    });
+
+});
+
+app.post('/chatajax', function (req, res) {
+   const {sms} = req.body;
+   const date = new Date();
+   const user = req.session.login || 'Анонім';
+
+   mongoClient.connect(url, function(err, db){
+        db.collection("chat").insertOne({user, date, sms}, function(err, result){
+             
+            if(err) return res.status(400).send();
+
+            db.close();
+            res.send(200, `${sms} ${date} ${user}`)
+        });
+    });
+
+});
+
+
+app.get('/chatio', function (req, res) {
+ 
+    res.render('post/chat2',{
+        title: 'Чат 2',
+    });
+
+});
+
 
 app.use((req, res, next)=>{
 	console.log(req.url);
@@ -370,6 +442,12 @@ app.use((error, req, res, next)=>{
 	console.log(req.url);
 	res.send('Error 500 server not work!');
 	next();
+});
+
+io.on('connection', function(){ 
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
 });
 
 
