@@ -1,5 +1,6 @@
 <% include header %>
 	<script type="text/javascript" src='/js/leaflet.js'></script>
+	<link rel="stylesheet" href="/css/leaflet.css" />
 	<h1><%= title %></h1>
 	<p><%= content %></p>
 	<div id="map" style="min-width: 100%; min-height: 400px;"></div>
@@ -17,10 +18,20 @@
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
 	map.fitBounds(bounds);
-
+	console.log('Test1');
 	var marker = L.marker([100,100],
               {draggable: false}
               ).addTo(map);
+	var marker2 = L.marker([200,200],
+              {draggable: true}
+              ).addTo(map);
+	console.log('Test2', marker);
+
+	marker2.on('dragend', function(){
+		var xy = this.getLatLng();
+		console.log("x="+xy.lat+" y="+xy.lng);
+
+	});
 	</script>
 	
 <% include footer %>

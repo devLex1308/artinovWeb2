@@ -12,16 +12,16 @@ $(document).ready(function(){
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
 	map.fitBounds(bounds);
-
-var marker = L.marker([0, 0],
+  console.log('Test1');
+var marker = L.marker([500, 500],
               {draggable: false}
               ).addTo(map);
-
+  console.log('Test');
 // L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");
 
-var polyline = L.polyline(arr, {color: 'yellow'}).addTo(map);
-        // zoom the map to the polyline
-        map.fitBounds(polyline.getBounds());
+// var polyline = L.polyline(arr, {color: 'yellow'}).addTo(map);
+//         // zoom the map to the polyline
+//         map.fitBounds(polyline.getBounds());
 
 	$(".showRoute").click(function(e){
 
