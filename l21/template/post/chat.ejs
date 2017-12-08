@@ -1,0 +1,23 @@
+<% include ../header %>
+	<div class="container">
+    <div class="row">
+      <h1><%= title%></h1>
+      <ul id=chat>
+        <% mesages.forEach((item)=>{ %>
+          <li><span class="user"><%= item.date + " " + item.user %></span> <%= item.sms %> </li>
+        <% }) %>
+      </ul>
+      <form method="post">
+        <input id="sms" type="text" name="sms">
+        <button id = "send" type="submit">Надіслати</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      
+
+  </script>
+	
+	
+<% include ../footer %>

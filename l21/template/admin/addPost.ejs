@@ -1,0 +1,32 @@
+<% include header %>
+  <script type="text/javascript" src="//cdn.ckeditor.com/4.4.0/standard/ckeditor.js"></script>
+  <div class="container"> 
+    <div class="row">
+    <h1><%= title%></h1>
+    <form class="form" method="post">
+      <div class="form-group">
+          <label for="exampleInputEmail1">Назва статті</label>
+          <input type="text" class="form-control" name="postTitle" id="postTitle" placeholder="Заголовок">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Короткий опис</label>
+          <textarea class="form-control" name="description" id="description"  >
+          </textarea>
+          <script type="text/javascript">
+            CKEDITOR.replace('description');
+          </script>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Текст статті</label>
+          <textarea class="form-control" name="post" id="post" placeholder="Опис">
+          </textarea>
+          <script type="text/javascript">
+            CKEDITOR.replace('post');
+          </script>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div> 
+
+<% include footer %>
