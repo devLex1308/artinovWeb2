@@ -13,9 +13,11 @@ $(document).ready(function(){
 
 	map.fitBounds(bounds);
 
-var marker = L.marker([lat,lng],
+var marker = L.marker([0, 0],
               {draggable: false}
               ).addTo(map);
+
+// L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");
 
 var polyline = L.polyline(arr, {color: 'yellow'}).addTo(map);
         // zoom the map to the polyline

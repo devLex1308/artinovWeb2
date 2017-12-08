@@ -31,6 +31,13 @@ module.exports = (app) => {
 	  });
 	});
 
+	app.get('/map', function (req, res) {
+	  res.render('map',{
+	  	title: 'Map',
+	  	content: 'Content map'
+	  });
+	});
+
 	app.post('/aftorization', function (req, res) {
   
 	if(!req.body) return res.sendStatus(400);

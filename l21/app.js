@@ -12,11 +12,17 @@ let objectId = require("mongodb").ObjectID;
 let Cookies = require( "cookies" );
 let session = require('express-session');
 
-app.use(session({
-    secret: '2C44-4D44-WppQ38S',
-    resave: true,
-    saveUninitialized: true
-}));
+// var mongoose = require("mongoose")
+// var MongoStore = require('connect-mongo')(session);
+
+// app.use(session({
+//   secret: 'secret-key',
+//   resave: false,
+//   saveUninitialized: false,
+//   store: new MongoStore({ 
+//     url: 'mongodb://localhost:27017test-app',
+//   })
+// }));
 
 var url = "mongodb://localhost:27017/test";
 
