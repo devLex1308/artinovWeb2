@@ -1,0 +1,39 @@
+ <% include header %>
+
+<!-- BEGIN CONTENT -->
+
+		<% include slider %>
+		<section class="block">
+			<h1><%= title %></h1>
+			<table>
+				<thead>
+					<th>id</th>
+					<th>login</th>
+					<th>pass</th>
+					<th>edit</th>
+					<th>delete</th>
+
+				</thead>
+				<tbody>
+					<% console.log('------------------------------') %>
+					<% console.log(data) %>
+					<% console.log('------------------------------') %>
+					<% data.map((item, index)=>{ %>
+						<% let i = index + 1; %>
+						<% console.log(item) %>
+						<tr>
+							<td><%=i %></td>
+							<td><%=item.login %></td>
+							<td><%=item.pass %></td>
+							<td><a href="/user/edit/<%=item._id%>">edit</a></td>
+							<td><a href="/user/delete/<%=item._id%>" class="deleteUser" data-userid="<%=item._id%>">delete</a></td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</section>
+		
+			
+<!-- CONTENT EOF   -->
+
+<% include footer %>
