@@ -120,9 +120,6 @@ module.exports = (app) => {
 	            db.close();
 	        });
 	    });
-
-	  
-
 	});
 
 	app.post('/chat', function (req, res) {
