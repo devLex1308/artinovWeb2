@@ -169,7 +169,7 @@ module.exports = (app) => {
 	app.get('/chatio', function (req, res) {
 	    const nickname = req.session.user && req.session.user.login ? req.session.user.login : '';
 	    res.render('chat',{
-	    	nickname ,
+	    	nickname,
 	    });
 	});
 

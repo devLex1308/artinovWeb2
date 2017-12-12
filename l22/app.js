@@ -57,7 +57,13 @@ app.post('/loadfile', (req, res)=>{
 	var form = new formidable.IncomingForm();
 	form.parse(req, function (err, fields, files) {
 	  var oldpath = files.filetoupload.path;
-	  var newpath = path.join(__dirname, 'loadfiles', files.filetoupload.name);
+	  var dateAndTyme = new Date();
+	  var minutes = dateAndTyme.getMinutes();
+	  var seconds = dateAndTyme.getSeconds();
+	  console.log("dateAndTyme=",dateAndTyme);
+	  //console.log("files.filetoupload.name = ", files.filetoupload);
+	  let nameArray = files.filetoupload.name.split('.');
+	  var newpath = path.join(__dirname, 'loadfiles', `${minutes}-${seconds}.${nameArray[1]}`);
 	  fs.rename(oldpath, newpath, function (err) {
 	    if (err) throw err;
 	    res.write('File uploaded and moved!');

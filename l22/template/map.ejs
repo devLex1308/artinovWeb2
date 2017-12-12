@@ -37,6 +37,21 @@
 		var polyline = L.polyline(arr, {color: 'yellow'}).addTo(map);
         // zoom the map to the polyline
         map.fitBounds(polyline.getBounds());
+
+        let x = 500;
+        let y = 500;
+
+        var marker3 = L.marker([100,100],
+	              {draggable: false}
+	              ).addTo(map);
+
+        setInterval(()=>{
+        	x += 5 * Math.random() - 2.5;
+        	y += 5 * Math.random() - 2.5;
+        	marker3.setLatLng([x, y]);
+        },100);
+
+
 	</script>
 	
 <% include footer %>
