@@ -1,0 +1,18 @@
+<% include header %>
+
+	<h1><%= title %></h1>
+	<form method="post">
+		<label>
+			<p>Введіть ваш логін</p>
+			<input type="type" name="login" value="<%=user.login%>">
+		</label>
+		<label>
+			<p>Введіть ваш пароль</p>
+			<input type="password" name="pass" value="<%=user.pass%>">
+		</label>
+		<p>
+			<button type="submit">Надіслати</button>
+		</p>
+	</form>
+	
+<% include footer %>
